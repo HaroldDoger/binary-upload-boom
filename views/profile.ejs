@@ -1,33 +1,88 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <div class="row mt-5">
+  <div class="flex items-center justify-center p-2">
       <div class="col-6">
           <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <p><label for="title" class="mb-3 block text-base font-medium text-[#07074D]">User Name: <%= user.userName %></p>
+              <p><label for="title" class="mb-3 block text-base font-medium text-[#07074D]">E-mail: <%= user.email %></p>
+              <a href="/logout" class="col-6 btn btn-primary">Logout</a>
           </div>
-          <div class="mt-5">
-            <h2>Add a Drink Recipe</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Name Of Drink</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Recipe</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Ingredients</label>
-                <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary active" value="Upload">Submit</button>
-            </form>
+
+          <div>
+            <!-- component -->
+<div class="flex items-center justify-center p-2">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="mx-auto w-full max-w-[550px] bg-white">
+    <form
+      class="py-6 px-9"
+      action="/post/createPost"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      <div class="mb-5">
+        <label
+          for="title"
+          class="mb-3 block text-base font-medium text-[#07074D]"
+        >
+        Add a Drink Recipe
+        </label>
+        <input
+          type="text"  
+          id="title" 
+          name="title"
+          placeholder="Name of Drink"
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+      </div>
+      <!-- recipe form -->
+      <div class="mb-5">
+        <label
+          for="caption"
+          class="mb-3 block text-base font-medium text-[#07074D]"
+        >
+        Recipe
+        </label>
+        <input
+          type="text"  
+          id="caption" 
+          name="caption"
+          placeholder="Write the steps of your drink here"
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+      </div>
+      <!-- ingredients form -->
+      <div class="mb-5">
+        <label
+          for="caption"
+          class="mb-3 block text-base font-medium text-[#07074D]"
+        >
+        Ingredients
+        </label>
+        <input
+          type="text"  
+          id="ingredients" 
+          name="ingredients"
+          placeholder="List the required ingredients here"
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="imgUpload" class="mb-3 block text-base font-medium text-[#07074D]">Image</label>
+        <input type="file" class="form-control" id="imageUpload" name="file">
+      </div>
+
+      <div>
+        <button
+        type="submit" class="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" value="Upload"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
           </div>
       </div>
       <div class="col-6">
@@ -64,4 +119,31 @@
     </div>
   </div>
 </div>
+
 <%- include('partials/footer') -%>
+
+            <!-- old ejs for profile page and form creation -->
+            <!-- <h2>Add a Drink Recipe</h2>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Name Of Drink</label>
+                  <input type="text" class="form-control" id="title" name="title">
+              </div>
+
+              <div class="mb-3">
+                <label for="caption" class="form-label">Recipe</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="caption" class="form-label">Ingredients</label>
+                <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+
+              <button type="submit" class="btn btn-primary active" value="Upload">Submit</button>
+            </form> -->
