@@ -1,10 +1,10 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-6">
-      <h2><%= post.title %></h2>
-      <img class="img-fluid" src="<%= post.image%>" />
-      <div class="row justify-content-between">
+  <div class="row  mt-5">
+    <div class="col-6 text-center block text-base font-medium text-[#07074D]">
+      <h2 class="border-bottom mb-2"><%= post.title %></h2>
+      <img class="img-fluid mx-auto" src="<%= post.image%>" />
+      <div class="row justify-content-center mx-auto">
         <form
           class="col-1"
           action="/post/likePost/<%= post.id %>?_method=PUT"
@@ -13,27 +13,35 @@
         
           <button class="btn btn-primary fa fa-heart active" type="submit"></button>
         </form>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
+        <h3 class="col-3 mx-auto mt-1">Likes: <%= post.likes %></h3>
+        
         <%if(post.user == user.id){ %>
         <form
           action="/post/deletePost/<%= post.id %>?_method=DELETE"
           method="POST"
           class="col-3"
         >
-          <button class="btn btn-primary fa fa-trash active" type="submit"></button>
+          <button class="btn btn-primary fa fa-trash active " type="submit"></button>
         </form>
         <%}%>
+        
       </div>
     </div>
-    <div class="col-3 mt-5">
-      <h2>Recipe</h2>
+
+
+    
+    <div class="col-3 w-96 mt-5 block text-base font-medium text-[#1C3041] border rounded">
+      <h2 class="border-bottom">Recipe</h2>
       <p><%= post.caption %></p>
     </div>
-    <div class="col-3 mt-5">
-      <h2>Ingredients</h2>
+    <div class="col-3 w-96 mt-5 block text-base font-medium text-[#07074D] border rounded">
+      <h2 class="border-bottom">Ingredients </h2>
       <p><%= post.ingredients %></p>
     </div>
-    <div class="mt-5">
+
+
+
+    <!-- <div class="mt-5">
       <h2>Add a comment</h2>
       <form action="/comment/createComment/<%=post._id%>" method="POST">
         <div class="mb-3">
@@ -42,18 +50,55 @@
         </div>
         <button type="submit" class="btn btn-primary active" >Submit</button>
       </form>
-    </div>
+    </div> -->
+
+    <label
+          for="comment"
+          class="mt-6 block text-base font-medium text-[#07074D]"
+        >
+        Comments
+        </label>
     <ul>
       <% for(var i=0; i<comments.length; i++) {%>
-        <li class="col-6 justify-content-between mt-5">
+        <li class="col-6 justify-content-between mt-5 mb-3 block text-base font-medium text-[#07074D] border rounded">
           <%= comments[i].comment%>
         </li>
       <% } %>
     </ul>
-    <div class="col-6 mt-5">
+    <div class="col-3 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
       <a class="btn btn-primary" href="/feed">Return to Feed</a>
     </div>
+
+
+    <div class="mx-auto w-full max-w bg-white">
+      <form
+        class="py-6 px-9"
+        action="/comment/createComment/<%=post._id%>"
+        method="POST"
+      >
+        <div class="mb-5">
+        <label
+          for="comment"
+          class="mb-3 block text-base font-medium text-[#07074D]"
+        >
+        Add Comments
+        </label>
+        <input
+          type="text"  
+          id="comment" 
+          name="comment"
+          placeholder="Comment your thoughts here!"
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary active" >Submit</button>
+      </form>
+    </div>
+
+
+
+    
   </div>
 </div>
 

@@ -5,7 +5,7 @@
           <div>
               <p><label for="title" class="mb-3 block text-base font-medium text-[#07074D]">User Name: <%= user.userName %></p>
               <p><label for="title" class="mb-3 block text-base font-medium text-[#07074D]">E-mail: <%= user.email %></p>
-              <a href="/logout" class="col-6 btn btn-primary">Logout</a>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
 
           <div>
@@ -21,6 +21,12 @@
       method="POST"
     >
       <div class="mb-5">
+        <label
+          for="title"
+          class="mb-3 block border-bottom text-base font-bold text-[#07074D]"
+        >
+        Create a Drink
+        </label>
         <label
           for="title"
           class="mb-3 block text-base font-medium text-[#07074D]"
@@ -75,7 +81,7 @@
 
       <div>
         <button
-        type="submit" class="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" value="Upload"
+        type="submit" class="hover:shadow-form w-full rounded-md bg-[#570DF8] py-3 px-8 text-center text-base font-semibold text-white outline-none" value="Upload"
         >
           Submit
         </button>
@@ -103,10 +109,6 @@
           </a>
             <div class="card-body">
               <h2 class="card-title">"<%= posts[i].title%>"</h2>
-              <% /* %>
-              <p>"<%= posts[i].caption%>"</p>
-              <% */ %>
-              
             </div>
           </div>
 
