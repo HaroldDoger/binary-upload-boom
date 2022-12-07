@@ -1,21 +1,32 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <div class="flex items-center justify-center p-2">
-      <div class="col-6">
+  <div class=" flex main body content items-stretch justify-content-md-between align-content-end p-2 content">
+      <div>
           <div>
-              <p><label for="title" class="mb-3 block text-base font-medium text-[#07074D]">User Name: <%= user.userName %></p>
-              <p><label for="title" class="mb-3 block text-base font-medium text-[#07074D]">E-mail: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
+            <!-- Username nav bar component -->
+            <div class=" navbar bg-gray-300 rounded-box col-1   justify-content-between mb-1 p-2 text-[#07074D]">
+              <div class="flex-1 px-2 lg:flex-none">
+                <a class="text-lg font-bold"  href="/profile"><%= user.userName %></a>
+              </div> 
+              <div class="flex justify-end flex-1 px-2">
+                <div class="flex items-stretch">
+                  <a class="btn btn-ghost rounded-btn" href="/logout">Logout</a>
+                  <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-ghost rounded-btn">Account Details</label>
+                    <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                      <li><p><label for="title" class="mb-3 bold text-xl text-[#07074D]">User Name: <%= user.userName %></p></li>
+                        <li><p><label for="title" class="mb-3 bold text-xl text-[#07074D]">E-mail: <%= user.email %></p></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>    
 
-          <div>
-            <!-- component -->
-<div class="flex items-center justify-center p-2">
-  <!-- Author: FormBold Team -->
-  <!-- Learn More: https://formbold.com -->
-  <div class="mx-auto w-full max-w-[550px] bg-white">
+            <!-- Create drink form component -->
+<div class="  navbar bg-base-200 rounded-box col-1  justify-content-between p-1 ">
+  <div>
     <form
-      class="py-6 px-9"
+      class="py-9 px-9"
       action="/post/createPost"
       enctype="multipart/form-data"
       method="POST"
@@ -23,7 +34,7 @@
       <div class="mb-5">
         <label
           for="title"
-          class="mb-3 block border-bottom text-base font-bold text-[#07074D]"
+          class="mb-3 mb-3 bold text-3xl text-[#07074D]"
         >
         Create a Drink
         </label>
@@ -31,14 +42,14 @@
           for="title"
           class="mb-3 block text-base font-medium text-[#07074D]"
         >
-        Add a Drink Recipe
+        Drink Name
         </label>
         <input
           type="text"  
           id="title" 
           name="title"
           placeholder="Name of Drink"
-          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          class=" w-80 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
         />
       </div>
       <!-- recipe form -->
@@ -54,7 +65,7 @@
           id="caption" 
           name="caption"
           placeholder="Write the steps of your drink here"
-          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          class="w-80 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
         />
       </div>
       <!-- ingredients form -->
@@ -70,7 +81,7 @@
           id="ingredients" 
           name="ingredients"
           placeholder="List the required ingredients here"
-          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          class="w-80 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
         />
       </div>
 
@@ -91,19 +102,28 @@
 </div>
           </div>
       </div>
-      <div class="col-6">
-        <ul class="row list-unstyled">
-      
+
+
+
+
+
+      <div class="col-6 ml-3 body justify-end">
+           <span class="ml-2  bold text-3xl ">My Posts</span>
+        <ul class=" row list-unstyled pl-1">
+          <% if (posts.length === 0) { %>
+            <span class="ml-2 bold text-3xl">You profile has no drinks made yet! Create one now!</span>
+            <%} else { %>
+            
         <% for(var i=0; i<posts.length; i++) {%>
           <% /* %>
-          <li class="col-6 justify-content-between mt-5">
+          <li class="col-3 mt-5 body justify-content-center w-full">
             <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
+              <img class="img-fluid " src="<%= posts[i].image%>">
             </a>
           </li>
           <% */ %>
 
-          <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <div class="card card-compact w-80 bg-base-100 shadow-xl">
             <a href="/post/<%= posts[i]._id%>">
             <figure><img src="<%= posts[i].image%>" alt="Shoes" /></figure>
           </a>
@@ -113,8 +133,9 @@
           </div>
 
         <% } %>
+        <% } %>
         </ul>
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-between mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
         </div>  
       </div>  
@@ -122,6 +143,21 @@
   </div>
 </div>
 
+
+
+
+<!-- <script>
+  // Script to open and close sidebar
+  function open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+  }
+   
+  function close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+  }
+  </script> -->
 <%- include('partials/footer') -%>
 
             <!-- old ejs for profile page and form creation s-->

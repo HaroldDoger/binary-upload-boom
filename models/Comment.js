@@ -17,6 +17,10 @@ const CommentSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  commentedBy: {
+    type: mongoose.Schema.Types.String,
+    ref: 'User', 
+  },
 });
 
 module.exports = mongoose.model("Comment", CommentSchema);

@@ -1,8 +1,8 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <div class="row  mt-5">
+  <div class="row body mt-5 justify-content-center">
     <div class="col-6 text-center block text-base font-medium text-[#07074D]">
-      <h2 class="border-bottom mb-2"><%= post.title %></h2>
+      <h2 class=" mb-3 bold text-3xl"><%= post.title %></h2>
       <img class="img-fluid mx-auto" src="<%= post.image%>" />
       <div class="row justify-content-center mx-auto">
         <form
@@ -13,7 +13,7 @@
         
           <button class="btn btn-primary fa fa-heart active" type="submit"></button>
         </form>
-        <h3 class="col-3 mx-auto mt-1">Likes: <%= post.likes %></h3>
+        <h3 class="col-3 mx-auto mt-1 mb-3 bold text-3xl">Likes: <%= post.likes %></h3>
         
         <%if(post.user == user.id){ %>
         <form
@@ -31,11 +31,11 @@
 
     
     <div class="col-3 w-96 mt-5 block text-base font-medium text-[#1C3041] border rounded">
-      <h2 class="border-bottom">Recipe</h2>
+      <h2 class="border-bottom mb-3 bold text-3xl">Recipe</h2>
       <p><%= post.caption %></p>
     </div>
     <div class="col-3 w-96 mt-5 block text-base font-medium text-[#07074D] border rounded">
-      <h2 class="border-bottom">Ingredients </h2>
+      <h2 class="border-bottom mb-3 bold text-3xl">Ingredients </h2>
       <p><%= post.ingredients %></p>
     </div>
 
@@ -54,19 +54,19 @@
 
     <label
           for="comment"
-          class="mt-6 block text-base font-medium text-[#07074D]"
+          class="mt-6 bold text-3xl text-[#07074D]"
         >
         Comments
         </label>
     <ul>
       <% for(var i=0; i<comments.length; i++) {%>
         <li class="col-6 justify-content-between mt-5 mb-3 block text-base font-medium text-[#07074D] border rounded">
+          <%= comments[i].commentedBy %>
           <%= comments[i].comment%>
         </li>
       <% } %>
     </ul>
-    <div class="col-3 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+    <div class="mt-5">
       <a class="btn btn-primary" href="/feed">Return to Feed</a>
     </div>
 
@@ -80,7 +80,7 @@
         <div class="mb-5">
         <label
           for="comment"
-          class="mb-3 block text-base font-medium text-[#07074D]"
+          class="mb-3 bold text-3xl text-[#07074D]"
         >
         Add Comments
         </label>
