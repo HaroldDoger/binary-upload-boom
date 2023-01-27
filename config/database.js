@@ -16,18 +16,6 @@ const connectDB = async () => {
   }
 };
 
-//new
-//Routes go here
-app.all('*', (req,res) => {
-  res.json({"every thing":"is awesome"})
-})
 
-//Connect to the database before listening
-connectDB().then(() => {
-  app.listen(PORT, () => {
-      console.log("listening for requests");
-  })
-})
-//new
 
 module.exports = connectDB;
