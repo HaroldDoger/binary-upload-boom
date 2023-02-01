@@ -7,19 +7,21 @@
         <% for(var i=0; i<posts.length; i++) {%>
           <% /* %>
           <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
+            <a href="/post/<%= posts[0]._id%>">
               <img class="img-fluid" src="<%= posts[i].image%>">
             </a>
           </li>
           <% */ %>
 
-          <div class="card card-compact w-96 bg-base-100 shadow-xl">
+          <div class="card bg-base-100 shadow-xl mb-3 pt-4 w-3/5 mx-auto">
             <a href="/post/<%= posts[i]._id%>">
-            <figure><img src="<%= posts[i].image%>" alt="Shoes" /></figure>
+            <figure><img src="<%= posts[i].image%>" width="400" height="300"/></figure>
+            
           </a>
-            <div class="card-body">
-              <h2 class="card-title">"<%= posts[i].title%>"</h2>
-              <h2 class="card-compact"><%= posts[i].caption%></h2>
+            <div class="card-body bg-base-200 mt-4 ">
+              <h2 class="card-title"><%= posts[i].title%></h2>
+              <h2 class="card-compact"><%= posts[i].ingredients%></h2>
+              <h2 class="card-title mt-4 badge">Likes: <%= posts[i].likes%></h2>
             </div>
           </div>
 
