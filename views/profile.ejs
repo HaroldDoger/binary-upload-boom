@@ -31,7 +31,7 @@
       enctype="multipart/form-data"
       method="POST"
     >
-      <div class="mb-5">
+      <div class="mb-5 dark:text-white">
         <label
           for="title"
           class="mb-3 mb-3 bold text-3xl text-[#07074D]"
@@ -40,7 +40,7 @@
         </label>
         <label
           for="title"
-          class="mb-3 block text-base font-medium text-[#07074D]"
+          class="mb-3 block text-base font-medium text-[#07074D] dark:text-white"
         >
         Drink Name
         </label>
@@ -49,14 +49,14 @@
           id="title" 
           name="title"
           placeholder="Name of Drink"
-          class="  rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          class="  rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md "
         />
       </div>
       <!-- recipe form -->
       <div class="mb-5">
         <label
           for="caption"
-          class="mb-3 block text-base font-medium text-[#07074D]"
+          class="mb-3 block text-base font-medium text-[#07074D] dark:text-white"
         >
         Recipe
         </label>
@@ -72,7 +72,7 @@
       <div class="mb-5">
         <label
           for="caption"
-          class="mb-3 block text-base font-medium text-[#07074D]"
+          class="mb-3 block text-base font-medium text-[#07074D] dark:text-white"
         >
         Ingredients
         </label>
@@ -86,7 +86,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="imgUpload" class="mb-3 block text-base font-medium text-[#07074D]">Image</label>
+        <label for="imgUpload" class="mb-3 block text-base font-medium text-[#07074D] dark:text-white">Image</label>
         <input type="file" class="form-control" id="imageUpload" name="file">
       </div>
 
@@ -111,7 +111,7 @@
            
         <ul class=" row list-unstyled pl-1">
           <% if (posts.length === 0) { %>
-            <div class="alert  shadow-lg">
+            <div class="alert  shadow-lg dark:text-white">
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <span>All your posts go here! Create a drink to give your page some life! </span>
