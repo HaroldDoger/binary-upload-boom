@@ -1,0 +1,67 @@
+<%- include('partials/header') -%>
+  <div class="container">
+    
+  
+    
+
+      <div class=" md:fixed md:top-52 md:right-50  ">    
+      
+      
+
+
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-wide btn-primary p-2  m-1">filter</label>
+        <ul tabindex="0" class="dropdown-content shadow menu p-2  bg-base-100  w-52">
+          <li><a href="/feed">Newest</a></li>
+          <li><a href="/oldest" class="active">Oldest</a></li>
+          <li><a href="/popular">Most Popular</a></li>
+        </ul>
+      </div>
+      </div>
+      
+   
+
+    <a href="/oldest"><button class=" fixed md:bottom-10 md:right-20 btn">Top</button></a>
+
+    
+    
+    <div class="row justify-content-center mt-5">
+      
+      
+        <ul class="row list-unstyled">
+        
+      
+        <% for(var i=posts.length - 1; i>=0; i--) {%>
+            
+          
+
+      <div class="card bg-base-100 shadow-xl mb-3 pt-4 w-3/5 mx-auto">
+        <a href="/post/<%= posts[i]._id%>">
+          <figure><img src="<%= posts[i].image%>" width="400" height="300"/></figure>
+        </a>
+
+
+        <div class="card-body bg-base-300 mt-4 -ml-3 -mr-3 ">
+            <h2 class="card-title dark:text-white"><%= posts[i].title%></h2>
+            <h2 class="card-compact dark:text-white"><%= posts[i].ingredients%></h2>
+            <h2 class="card-title mt-4 badge">Likes: <%= posts[i].likes%></h2>
+        </div>
+      </div>
+
+        <% } %>
+        </ul>
+        
+      </div>
+
+      
+
+    </div>  
+
+    
+    
+  </div>
+
+  
+
+
+<%- include('partials/footer') -%>
